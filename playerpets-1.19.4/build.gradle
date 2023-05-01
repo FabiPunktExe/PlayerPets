@@ -13,6 +13,8 @@ subprojects {
     apply plugin: 'architectury-plugin'
     apply plugin: 'dev.architectury.loom'
 
+    archivesBaseName = "${parent.name}-${name}"
+
     loom {
         silentMojangMappingsLicense()
     }
@@ -30,10 +32,7 @@ subprojects {
         options.release = 17
     }
 
-    java {
+    /*java {
         withSourcesJar()
-    }
-}
-
-allprojects {
+    }*/
 }
