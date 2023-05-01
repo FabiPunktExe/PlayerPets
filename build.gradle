@@ -1,7 +1,7 @@
 plugins {
 }
 
-version = '0.1.0'
+version = '0.1.1'
 group = 'playerpets'
 
 repositories {
@@ -16,4 +16,9 @@ subprojects {
 allprojects {
     version = rootProject.version
     group = rootProject.group
+}
+
+task publish {
+    group = 'Publishing'
+    dependsOn ':playerpets-1.19.4:publish'
 }

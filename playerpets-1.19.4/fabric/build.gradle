@@ -1,5 +1,6 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id 'com.github.johnrengelman.shadow' version '7.+'
+    id 'com.modrinth.minotaur' version '2.+'
 }
 
 architectury {
@@ -32,7 +33,7 @@ processResources {
 
 shadowJar {
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+    classifier 'dev-shadow'
 }
 
 remapJar {
@@ -42,17 +43,26 @@ remapJar {
 }
 
 jar {
-    classifier "dev"
+    classifier 'dev'
 }
-
-/*sourcesJar {
-    def commonSources = project(":playerpets-1.19.4:common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
-}*/
 
 components.java {
     withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
         skip()
     }
+}
+
+modrinth {
+    token = System.getenv('MODRINTH_TOKEN')
+    projectId = 'playerpets'
+    versionName = '[1.19.4 Fabric]'
+    versionNumber = project.version
+    versionType = 'alpha'
+    uploadFile = remapJar
+    gameVersions = ['1.19.4']
+    loaders = ['fabric', 'quilt']
+    dependencies {
+        required.project 'architectury-api'
+    }
+    changelog = new File('changelog.md').text.replace('%version%', project.version)
 }
