@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "playerpets",
+  "version": "${version}",
+  "name": "PlayerPets",
+  "description": "PlayerPets are little creatures living in your inventory. They give effects, items and utilities to you.",
+  "authors": ["MrStupsi", "Noriskky"],
+  "contact": {},
+  "license": "GNU GPL 3.0",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      "playerpets.fabric.PlayerPetsFabric"
+    ]
+  },
+  "mixins": [
+    "playerpets.mixins.json",
+    "playerpets.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "minecraft": ">=1.19.4"
+  }
+}

@@ -1,0 +1,19 @@
+plugins {
+}
+
+version = '0.0.1'
+group = 'playerpets'
+
+repositories {
+}
+
+dependencies {
+}
+
+subprojects {
+}
+
+allprojects {
+    version = rootProject.version
+    group = rootProject.group
+}

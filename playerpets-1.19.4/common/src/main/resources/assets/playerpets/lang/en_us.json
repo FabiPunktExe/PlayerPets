@@ -1,0 +1,21 @@
+{
+  "itemGroup.playerpets.playerpets": "PlayerPets",
+  "playerpets.rarity.common": "Common",
+  "playerpets.rarity.rare": "Rare",
+  "playerpets.rarity.legendary": "Legendary",
+  "playerpets.food.favourite": "Favourite Food",
+  "playerpets.food.raw_meat": "Raw Meat",
+  "item.playerpets.creeper_pet": "Creeper Pet",
+  "pet.creeper.1": "Explosion",
+  "pet.creeper.2": "Charged explosion",
+  "item.playerpets.enderman_pet": "Enderman Pet",
+  "pet.enderman.1": "Random teleport",
+  "item.playerpets.spider_pet": "Spider Pet",
+  "pet.spider.1": "Climb walls",
+  "item.playerpets.coal_nugget": "Coal Nugget",
+  "item.playerpets.diamond_nugget": "Diamond Nugget",
+  "item.playerpets.emerald_nugget": "Emerald Nugget",
+  "item.playerpets.ender_nugget": "Ender Nugget",
+  "item.playerpets.lapis_nugget": "Lapis Nugget",
+  "item.playerpets.obsidian_nugget": "Obsidian Nugget"
+}

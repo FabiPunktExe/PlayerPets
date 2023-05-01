@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[45,)"
+license = "GNU GPL 3.0"
+issueTrackerURL = "https://github.com/MrStupsi/PlayerPets/issues"
+
+[[mods]]
+modId = "playerpets"
+version = "${version}"
+displayName = "PlayerPets"
+displayURL="https://modrinth.com/mod/playerpets"
+logoFile = "icon.png"
+authors="MrStupsi, Noriskky"
+description = '''
+PlayerPets are little creatures living in your inventory. They give effects, items and utilities to you.
+'''
+
+[[dependencies.playerpets]]
+modId = "forge"
+mandatory = true
+versionRange = "[45,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playerpets]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.4,1.20)"
+ordering = "NONE"
+side = "BOTH"
