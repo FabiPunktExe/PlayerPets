@@ -5,13 +5,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.WitherSkull;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import org.joml.Quaternionf;
 import playerpets.PlayerPets;
 import playerpets.item.PlayerPet;
 
@@ -30,37 +31,13 @@ public class WitherPet extends PlayerPet {
         ItemStack is = player.getItemInHand(interactionHand);
         if (PlayerPet.isActive(is)) {
             if (!level.isClientSide) {
-                if (player.isCrouching() && is.getDamageValue() <= 1) {
-                    double eyeX = player.getX();
-                    double eyeY = player.getEyeY();
-                    double eyeZ = player.getZ();
-                    WitherSkull witherskull = new WitherSkull(level, player, 1, 1, 1);
-                    witherskull.setOwner(player);
-                    witherskull.setDangerous(true);
-
-                    witherskull.setPosRaw(eyeX, eyeY, eyeZ);
-                    level.addFreshEntity(witherskull);
-                }
-
-                is.setDamageValue(is.getDamageValue() + 2);
-
-            } else {
-                    l        double d0 = this.getHeadX(i);
-                    double d1 = this.getHeadY(i);
-                    double d2 = this.getHeadZ(i);
-                    double d3 = d - d0;
-                    double d4 = e - d1;
-                    double d5 = f - d2;
-                    WitherSkull witherskull = new WitherSkull(this.level, this, d3, d4, d5);
-                    witherskull.setOwner(this);
-                    if (bl) {
-                        witherskull.setDangerous(true);
-                    }
-
-                    witherskull.setPosRaw(d0, d1, d2);
-                    this.level.addFreshEntity(witherskull);
-                }
+                if (player.isCrouching() && is.getDamageValue() <= durability - 2) {
+                    shootWitherSkull(true, player, level);
+                    is.setDamageValue(is.getDamageValue() + 2);
+                } else if (!player.isCrouching()) {
+                    shootWitherSkull(false, player, level);
                     is.setDamageValue(is.getDamageValue() + 1);
+                }
             }
             return InteractionResultHolder.success(is);
         } else return InteractionResultHolder.pass(is);
@@ -72,5 +49,14 @@ public class WitherPet extends PlayerPet {
         list.add(Component.literal("[RIGHT] ").withStyle(ChatFormatting.YELLOW).append(Component.translatable("pet.wither.1").withStyle(ChatFormatting.GRAY)));
         list.add(Component.literal("[RIGHT + SNEAK] ").withStyle(ChatFormatting.YELLOW).append(Component.translatable("pet.wither.2").withStyle(ChatFormatting.GRAY)));
         list.add(Component.translatable("playerpets.food.favourite").withStyle(ChatFormatting.GRAY).append(": ").append(Component.translatable("item.minecraft.coal")));
+    }
+
+    private void shootWitherSkull(boolean charged, Player player, Level level) {
+        Vec3 look = player.getLookAngle();
+        WitherSkull witherskull = new WitherSkull(level, player, look.x, look.y, look.z);
+        witherskull.setOwner(player);
+        witherskull.setDangerous(charged);
+        witherskull.setPosRaw(player.getX() + look.x, player.getEyeY() + look.y, player.getZ() + look.z);
+        level.addFreshEntity(witherskull);
     }
 }

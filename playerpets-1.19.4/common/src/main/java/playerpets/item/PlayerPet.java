@@ -21,11 +21,11 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class PlayerPet extends Item {
-    private Rarity rarity;
-    private int durability;
-    private int minDamageToEat;
-    private int repairOnEat;
-    private List<ItemLike> food;
+    protected Rarity rarity;
+    protected int durability;
+    protected int minDamageToEat;
+    protected int repairOnEat;
+    protected List<ItemLike> food;
 
     public PlayerPet(Rarity rarity, int durability, int minDamageToEat, int repairOnEat, ItemLike... food) {
         this(new Properties(), rarity, durability, minDamageToEat, repairOnEat, food);

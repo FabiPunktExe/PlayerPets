@@ -13,6 +13,7 @@ import playerpets.item.PlayerPet;
 import playerpets.item.pet.CreeperPet;
 import playerpets.item.pet.EndermanPet;
 import playerpets.item.pet.SpiderPet;
+import playerpets.item.pet.WitherPet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class PlayerPets {
             () -> new ItemStack(CreeperPet.INSTANCE.get())
     );
     public static final List<Supplier<? extends PlayerPet>> PETS = Lists.newArrayList(
-            CreeperPet.INSTANCE, EndermanPet.INSTANCE, SpiderPet.INSTANCE
+            CreeperPet.INSTANCE, EndermanPet.INSTANCE, SpiderPet.INSTANCE, WitherPet.INSTANCE
     );
     
     public static void init() {
