@@ -17,7 +17,7 @@
     ]
   },
   "mixins": [
-    "playerpets.mixins.json",
+    "playerpets-common.mixins.json",
     "playerpets.mixins.json"
   ],
   "depends": {
