@@ -1,6 +1,7 @@
 package playerpets.item.pet;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -16,6 +17,7 @@ import playerpets.PlayerPets;
 import playerpets.item.PlayerPet;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public class SpiderPet extends PlayerPet {

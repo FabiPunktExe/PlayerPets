@@ -10,10 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import playerpets.item.Nuggets;
 import playerpets.item.PlayerPet;
-import playerpets.item.pet.CreeperPet;
-import playerpets.item.pet.EndermanPet;
-import playerpets.item.pet.SpiderPet;
-import playerpets.item.pet.WitherPet;
+import playerpets.item.pet.*;
 
 import java.util.ArrayList;
 import java.util.List;
